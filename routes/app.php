@@ -14,6 +14,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\Master\ProductController;
 use App\Http\Controllers\Master\ProductImportController;
+use App\Http\Controllers\Master\BorrowingController;
+use App\Http\Controllers\Master\BorrowingImportController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\OptionActionController;
 use App\Http\Controllers\OptionController;
@@ -24,6 +26,8 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FaththinkController;
 use App\Http\Controllers\Master\ProductCategoryController;
 use App\Http\Controllers\Master\ProductCategoryImportController;
+use App\Http\Controllers\Master\BookController;
+use App\Http\Controllers\Master\BookImportController;
 use App\Http\Controllers\Search;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserActionController;
@@ -121,6 +125,7 @@ Route::prefix('')->group(function () {
     Route::apiResource('options', OptionController::class)->middleware('option.verifier');
 
     Route::get('master/products/pre-requisite', [ProductController::class, 'preRequisite']);
+    Route::get('master/borrowings/pre-requisite', [BorrowingController::class, 'preRequisite']);
     Route::get('blog/posts/pre-requisite', [PostController::class, 'preRequisite']);
 });
 
@@ -160,6 +165,10 @@ Route::prefix('master')->group(function () {
     Route::apiResource('products', ProductController::class);
     Route::post('productcategories/import', ProductCategoryImportController::class);
     Route::apiResource('productcategories', ProductCategoryController::class);
+    Route::post('borrowings/import', BorrowingImportController::class);
+    Route::apiResource('borrowings', BorrowingController::class);
+    Route::post('books/import', BookImportController::class);
+    Route::apiResource('books', BookController::class);
 });
 Route::prefix('blog')->group(function () {
     Route::post('posts/import', PostImportController::class);

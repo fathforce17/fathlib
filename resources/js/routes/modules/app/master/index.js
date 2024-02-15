@@ -1,5 +1,7 @@
 import product from "./product";
 import productcategory from "./productcategory";
+import borrowing from "./borrowing";
+import book from "./book";
 
 export default [
   {
@@ -14,6 +16,6 @@ export default [
     component: {
       template: "<router-view></router-view>",
     },
-    children: [...productcategory, ...product],
+    children: [...productcategory, ...product, ...borrowing, ...book],
   },
 ];

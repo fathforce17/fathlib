@@ -8,6 +8,8 @@ const toast = useToast();
 
 import product from "@stores/modules/master/product";
 import productcategory from "@stores/modules/master/productcategory";
+import borrowing from "@stores/modules/master/borrowing";
+import book from "@stores/modules/master/book";
 
 const initialState = () => ({
   initURL: "/app/master",
@@ -20,6 +22,8 @@ const master = {
   modules: {
     product,
     productcategory,
+    borrowing,
+    book,
   },
   mutations: {
     ...mutations,
